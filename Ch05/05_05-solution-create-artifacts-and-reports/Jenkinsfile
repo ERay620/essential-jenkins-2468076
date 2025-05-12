@@ -49,20 +49,13 @@ pipeline {
 
     post {
         always {
-            jacoco execPattern: '**/target/jacoco.exec',
-           classPattern: '**/target/classes',
-           sourcePattern: '**/src/main/java',
-           inclusionPattern: '**/*.class',
-           exclusionPattern: '**/test/**',
-            
-            junit allowEmptyResults: true,
-                testResults: '**/TEST-com.learningjenkins.AppTest.xml'
-
+           junit allowEmptyResults: true,
+            testResults: '**/TEST-com.learningjenkins.AppTest.xml',
             archiveArtifacts allowEmptyArchive: true,
-                artifacts: '**/hello-1.0-SNAPSHOT.jar',
-                fingerprint: true, 
-                followSymlinks: false, 
-                onlyIfSuccessful: true
+            artifacts: '**/hello-1.0-SNAPSHOT.jar',
+            fingerprint: true, 
+            followSymlinks: false, 
+            onlyIfSuccessful: true
         }
     }
 }
