@@ -4,6 +4,13 @@ pipeline {
       maven 'Maven-3.8.4'
     }
     stages {
+         stage('Check Maven') {
+            steps {
+                sh 'ls -la $MAVEN_HOME'
+                sh 'echo $PATH'
+                sh 'mvn -version'
+            }
+        }
         stage('Source') {
             steps {
                 git branch: 'main',
