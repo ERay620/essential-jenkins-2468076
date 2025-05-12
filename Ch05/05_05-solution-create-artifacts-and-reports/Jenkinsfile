@@ -50,7 +50,7 @@ pipeline {
     post {
         always {
             junit allowEmptyResults: true,
-                testResults: '**/TEST-com.learningjenkins.AppTest.xml',
+                testResults: '**/TEST-com.learningjenkins.AppTest.xml'
 
             archiveArtifacts allowEmptyArchive: true,
                 artifacts: '**/hello-1.0-SNAPSHOT.jar',
