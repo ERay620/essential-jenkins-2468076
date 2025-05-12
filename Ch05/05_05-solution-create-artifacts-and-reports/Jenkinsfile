@@ -53,7 +53,10 @@ pipeline {
                 testResults: '**/TEST-com.learningjenkins.AppTest.xml'
 
             archiveArtifacts allowEmptyArchive: true,
-                artifacts: '**/hello-1.0-SNAPSHOT.jar'
+                artifacts: '**/hello-1.0-SNAPSHOT.jar',
+                fingerprint: true, 
+                followSymlinks: false, 
+                onlyIfSuccessful: true
         }
     }
 }
