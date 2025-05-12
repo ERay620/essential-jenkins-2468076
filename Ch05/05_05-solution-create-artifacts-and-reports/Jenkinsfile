@@ -1,7 +1,12 @@
 pipeline {
-    agent any
+     agent {
+        docker {
+            image 'maven:3.8.4' // or latest
+            args '-v $HOME/.m2:/root/.m2' // optional: cache Maven dependencies
+        }
+    }
     tools {
-      maven 'Maven-3.3.9'
+      maven 'Maven-3.8.4'
     }
     stages {
          stage('Check Maven') {
